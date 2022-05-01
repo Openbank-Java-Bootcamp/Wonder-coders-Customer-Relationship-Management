@@ -37,8 +37,8 @@ public class Contact extends Person {
 
     public static void showContacts(){
         System.out.println("Contacts list");
-        contactList.forEach((id,lead)-> {
-            lead.printContact();
+        contactList.forEach((id,contact)-> {
+            contact.printContact();
         });
     }
 

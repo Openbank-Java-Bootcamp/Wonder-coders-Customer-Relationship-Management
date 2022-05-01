@@ -92,18 +92,20 @@ public class Lead extends Person {
         }
     }
 
-/*    public static void convertLead() {
+    public static void convertLead() {
         int id = Integer.parseInt(App.getCurrentId());
         if (Lead.leadList.containsKey(id)) {
             String name = leadList.get(id).getName();
-            long phoneNumber = leadList.get(id).getPhoneNumber();
+            String phoneNumber = leadList.get(id).getPhoneNumber();
             String email = leadList.get(id).getEmail();
             String companyName = leadList.get(id).getCompanyName();
             Contact decisionMaker = new Contact(name, phoneNumber, email);
-            Product product = AppHelp.askForProduct("Which product the customer is interested in? HYBRID, FLATBED or BOX");
+            String [] productType = {"HYBRID", "FLATBED", "BOX"};
+            String [] industryType = {"PRODUCE", "ECOMMERCE", "MANUFACTURING", "MEDICAL", "OTHER"};
+//            Product product = AppHelp.selectOption("Which product the customer is interested in? HYBRID, FLATBED or BOX", productType );
             int quantity = AppHelp.askForInt("How many of them does the customer want?");
             Opportunity newOpportunity = new Opportunity(product, quantity, decisionMaker);
-            Industry industry = AppHelp.askForIndustry("What industry is the company in? PRODUCE, ECOMMERCE, MANUFACTURING, MEDICAL or OTHER");
+//            Industry industry = AppHelp.selectOption("What industry is the company in? PRODUCE, ECOMMERCE, MANUFACTURING, MEDICAL or OTHER", industryType );
             int employeeCount = AppHelp.askForInt("How many employees are in the company?");
             String city = AppHelp.askForString("What city is the company located in?");
             String country = AppHelp.askForString("What country is the company from?");
@@ -118,5 +120,5 @@ public class Lead extends Person {
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
         }
-    }*/
+    }
 }
