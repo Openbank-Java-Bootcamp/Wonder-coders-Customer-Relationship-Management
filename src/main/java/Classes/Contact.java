@@ -1,7 +1,8 @@
 package Classes;
 
-public class Contact extends Person{
+public class Contact extends Person
     private static int id;
+
 
     public Contact(String name, long phoneNumber, String email) {
         super(name, phoneNumber, email);
@@ -9,6 +10,6 @@ public class Contact extends Person{
     }
 
     public static int getId() {
-        return id;
+
     }
 }

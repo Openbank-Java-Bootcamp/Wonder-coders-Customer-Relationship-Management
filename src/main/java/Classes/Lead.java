@@ -1,7 +1,9 @@
 package Classes;
 
 public class Lead extends Person{
+
     private static int id;
+  
     private String companyName;
 
     public Lead(String name, long phoneNumber, String email, String companyName) {
@@ -18,7 +20,9 @@ public class Lead extends Person{
         this.companyName = companyName;
     }
 
+
     public static int getId() {
+
         return id;
     }
 
