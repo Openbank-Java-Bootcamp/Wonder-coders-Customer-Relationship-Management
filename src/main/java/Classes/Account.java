@@ -20,8 +20,8 @@ public class Account {
 
     private static Map<Integer, Account> accountList = new HashMap<>();
 
-    public Account(String companyName, Industry industry, int employeeCount, String city, String country,
-                   List<Contact> contactList, List<Opportunity> opportunityList) {
+
+    public Account(String companyName, Industry industry, int employeeCount, String city, String country, List<Contact> contactList, List<Opportunity> opportunityList) {
         idCounter++;
         this.companyName = companyName;
         this.accountId = idCounter;
