@@ -1,7 +1,6 @@
 package Classes;
 
 import Enums.Industry;
-
 import java.util.List;
 
 public class Account {
@@ -12,11 +11,11 @@ public class Account {
     private int employeeCount;
     private String city;
     private String country;
-    private List<Contacts> contactList;
+    private List<Contact> contactList;
     private List<Opportunity> opportunityList;
 
     public Account(Industry industry, int employeeCount, String city, String country,
-                   List<Contacts> contactList, List<Opportunity> opportunityList) {
+                   List<Contact> contactList, List<Opportunity> opportunityList) {
         idCounter++;
         this.accountId = idCounter;
         this.industry = industry;
@@ -80,11 +79,11 @@ public class Account {
         this.country = country;
     }
 
-    public List<Contacts> getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 
-    public void setContactList(List<Contacts> contactList) {
+    public void setContactList(List<Contact> contactList) {
         this.contactList = contactList;
     }
 
