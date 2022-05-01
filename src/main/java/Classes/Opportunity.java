@@ -4,10 +4,9 @@ import Enums.*;
 
 import java.util.*;
 
-
 public class Opportunity {
     private final int id;
-    private static int idCount;
+    private static int idCount = 0;
     private Product product;
     private int quantity;
     private Contact decisionMaker;
@@ -16,12 +15,12 @@ public class Opportunity {
     private static Map<Integer, Opportunity> opportunityList = new HashMap<>();
 
     public Opportunity(Product product, int quantity, Contact decisionMaker, Status status) {
-        ++idCount;
+        idCount++;
         this.id = idCount;
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
-        this.status = status;
+        this.status = Status.OPEN;
         opportunityList.put(id, this);
     }
 
@@ -69,6 +68,7 @@ public class Opportunity {
         Opportunity.opportunityList = opportunityList;
     }
 
+    // Show details of an opportunity
     public void showOpportunity() {
         System.out.println("Opportunity");
         System.out.println("Id: " + id);
@@ -79,43 +79,50 @@ public class Opportunity {
         System.out.println("--------------------------------------");
     }
 
+    // Show opportunity with id
     public static void lookUpOpportunity() {
         int id = Integer.parseInt(App.getCurrentId());
 
-        if (Opportunity.getOpportunityList().containsKey(id)) {
+        if (Opportunity.getOpportunityList().containsKey(id)) { // If opportunity with exists
             Opportunity opportunity = opportunityList.get(id);
-            System.out.println("This is the opportunity with id " + id + "\n");
+            System.out.println("This is the opportunity with id " + id);
             opportunity.showOpportunity();
-        } else  {
+        } else {
             System.err.println("No opportunity with id " + id);
         }
     }
 
+    // Show list of opportunities
     public static void showOpportunities() {
-        System.out.println("List opportunities");
+        if (opportunityList.isEmpty()) {
+            System.err.println("Opportunity list is empty");
+        }
+        System.out.println("Opportunity list");
         opportunityList.forEach((id, opportunity) -> {
             opportunity.showOpportunity();
         });
     }
 
+    // Change status to CLOSE_WON
     public static void closeWon() {
         int id = Integer.parseInt(App.getCurrentId());
 
-        if (Opportunity.getOpportunityList().containsKey(id)) {
+        if (Opportunity.getOpportunityList().containsKey(id)) { // If opportunity with exists
             Opportunity opportunity = opportunityList.get(id);
             opportunity.setStatus(Status.CLOSED_WON);
-        } else  {
+        } else {
             System.err.println("No opportunity with id " + id);
         }
     }
 
+    // Change status to CLOSE_LOSE
     public static void closeLost() {
         int id = Integer.parseInt(App.getCurrentId());
 
-        if (Opportunity.getOpportunityList().containsKey(id)) {
+        if (Opportunity.getOpportunityList().containsKey(id)) { // If opportunity with exists
             Opportunity opportunity = opportunityList.get(id);
             opportunity.setStatus(Status.CLOSED_LOST);
-        } else  {
+        } else {
             System.err.println("No opportunity with id " + id);
         }
     }
