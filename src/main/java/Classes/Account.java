@@ -1,6 +1,6 @@
 package Classes;
 
-import Enums.Industry;
+import Enums.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class Account {
 
+    private String companyName;
     private final int accountId;
     private static int idCounter = 0;
     private Industry industry;
@@ -19,9 +20,10 @@ public class Account {
 
     private static Map<Integer, Account> accountList = new HashMap<>();
 
-    public Account(Industry industry, int employeeCount, String city, String country,
-                   List<Contact> contactList, List<Opportunity> opportunityList) {
+
+    public Account(String companyName, Industry industry, int employeeCount, String city, String country, List<Contact> contactList, List<Opportunity> opportunityList) {
         idCounter++;
+        this.companyName = companyName;
         this.accountId = idCounter;
         this.industry = industry;
         this.employeeCount = employeeCount;
@@ -34,13 +36,14 @@ public class Account {
     @Override
     public String toString() {
         return "Account: \n" +
+                "Company= " + accountId + "\n" +
                 "accountId=" + accountId + "\n" +
-                ", industry=" + industry + "\n" +
-                ", employeeCount=" + employeeCount + "\n" +
-                ", city='" + city + '\'' + "\n" +
-                ", country='" + country + '\'' + "\n" +
-                ", contactList=" + contactList + "\n" +
-                ", opportunityList=" + opportunityList + "\n";
+                "industry=" + industry + "\n" +
+                "employeeCount=" + employeeCount + "\n" +
+                "city='" + city + '\'' + "\n" +
+                "country='" + country + '\'' + "\n" +
+                "contactList=" + contactList + "\n" +
+                "opportunityList=" + opportunityList + "\n";
     }
 
     public void showAccounts() {
@@ -59,6 +62,14 @@ public class Account {
         } else {
             System.err.println("Account number " + accountId + "doesn't exist");
         }
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public int getAccountId() {
