@@ -1,11 +1,14 @@
 package Classes;
 
 import Enums.Industry;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Account {
 
-    private int accountId;
+    private final int accountId;
     private static int idCounter = 0;
     private Industry industry;
     private int employeeCount;
@@ -13,6 +16,9 @@ public class Account {
     private String country;
     private List<Contacts> contactList;
     private List<Opportunity> opportunityList;
+
+    private static Map<Integer, Account> accountList = new HashMap<>();
+
     public Account(Industry industry, int employeeCount, String city, String country,
                    List<Contacts> contactList, List<Opportunity> opportunityList) {
         idCounter++;
@@ -27,23 +33,36 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "accountId=" + accountId +
-                ", industry=" + industry +
-                ", employeeCount=" + employeeCount +
-                ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
-                ", contactList=" + contactList +
-                ", opportunityList=" + opportunityList +
-                '}';
+        return "Account: \n" +
+                "accountId=" + accountId + "\n" +
+                ", industry=" + industry + "\n" +
+                ", employeeCount=" + employeeCount + "\n" +
+                ", city='" + city + '\'' + "\n" +
+                ", country='" + country + '\'' + "\n" +
+                ", contactList=" + contactList + "\n" +
+                ", opportunityList=" + opportunityList + "\n";
+    }
+
+    public void showAccounts() {
+        System.out.println("Accounts list");
+        accountList.forEach((id, account) -> {
+            account.toString();
+        });
+    }
+
+    public static void lookUpAccounts() {
+        int accountId = Integer.parseInt(App.getCurrentId());
+        if (Account.getAccountList().containsKey(accountId)) {
+            Account account = accountList.get(accountId);
+            System.out.println("Account number Id " + accountId + "\n");
+            account.toString();
+        } else {
+            System.err.println("Account number " + accountId + "doesn't exist");
+        }
     }
 
     public int getAccountId() {
         return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
     }
 
     public Industry getIndustry() {
@@ -92,5 +111,13 @@ public class Account {
 
     public void setOpportunityList(List<Opportunity> opportunityList) {
         this.opportunityList = opportunityList;
+    }
+
+    public static Map<Integer, Account> getAccountList() {
+        return accountList;
+    }
+
+    public static void setAccountList(Map<Integer, Account> accountList) {
+        Account.accountList = accountList;
     }
 }
