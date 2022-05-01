@@ -1,7 +1,6 @@
 package Classes;
 
 import Enums.Industry;
-
 import java.util.List;
 
 public class Account {
@@ -14,7 +13,6 @@ public class Account {
     private String country;
     private List<Contacts> contactList;
     private List<Opportunity> opportunityList;
-
     public Account(Industry industry, int employeeCount, String city, String country,
                    List<Contacts> contactList, List<Opportunity> opportunityList) {
         idCounter++;

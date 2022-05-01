@@ -1,5 +1,6 @@
 package Classes;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ public class Contact extends Person {
     private static int idCounter;
 
     private static Map<Integer, Contact> contactList = new HashMap<>();
+
 
 
     public Contact(String name, long phoneNumber, String email) {
