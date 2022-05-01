@@ -5,6 +5,7 @@ import Enums.Product;
 import Enums.Status;
 
 public class Opportunity {
+
     private int id;
     private Product product;
     private int quantity;

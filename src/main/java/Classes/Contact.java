@@ -1,6 +1,6 @@
 package Classes;
 
-public class Contact extends Person
+public class Contact extends Person{
     private static int id;
 
 
