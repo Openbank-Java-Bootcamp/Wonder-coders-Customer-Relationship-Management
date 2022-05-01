@@ -1,30 +1,31 @@
 package Classes;
 
-public class Opportunity {
-import Enums.Product;
-import Enums.Status;
+import Enums.*;
+
+import java.util.*;
 
 public class Opportunity {
-    private int id;
+    private final int id;
+    private static int idCount;
     private Product product;
     private int quantity;
     private Contact decisionMaker;
     private Status status;
 
-    public Opportunity(int id, Product product, int quantity, Contact decisionMaker, Status status) {
-        this.id = id;
+    private static Map<Integer, Opportunity> opportunityList = new HashMap<>();
+
+    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status) {
+        ++idCount;
+        this.id = idCount;
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
         this.status = status;
+        opportunityList.put(id, this);
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Product getProduct() {
@@ -57,5 +58,50 @@ public class Opportunity {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public static Map<Integer, Opportunity> getOpportunityList() {
+        return opportunityList;
+    }
+
+    public static void setOpportunityList(Map<Integer, Opportunity> opportunityList) {
+        Opportunity.opportunityList = opportunityList;
+    }
+
+    public void showOpportunity() {
+        System.out.println("Opportunity");
+        System.out.println("Id: " + id);
+        System.out.println("Product: " + product);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Decision Maker: " + decisionMaker);
+        System.out.println("Status: " + status);
+        System.out.println("--------------------------------------");
+    }
+
+    public void lookUpOpportunity() {
+        int id = Integer.parseInt(App.getCurrentId());
+
+        if (Opportunity.getOpportunityList().containsKey(id)) {
+            Opportunity opportunity = opportunityList.get(id);
+            System.out.println("This is the opportunity with id " + id + "\n");
+            opportunity.showOpportunity();
+        } else  {
+            System.err.println("No opportunity with id " + id);
+        }
+    }
+
+    public void showOpportunities() {
+        System.out.println("List opportunities");
+        opportunityList.forEach((id, opportunity) -> {
+            opportunity.showOpportunity();
+        });
+    }
+
+    public void closeWon() {
+        this.status = Status.CLOSED_WON;
+    }
+
+    public void closeLost() {
+        this.status = Status.CLOSED_LOST;
     }
 }
