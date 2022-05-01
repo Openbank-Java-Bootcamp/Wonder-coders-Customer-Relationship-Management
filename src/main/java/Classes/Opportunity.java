@@ -1,6 +1,4 @@
 package Classes;
-
-public class Opportunity {
 import Enums.Product;
 import Enums.Status;
 
