@@ -11,9 +11,7 @@ public class Contact extends Person {
 
     private static Map<Integer, Contact> contactList = new HashMap<>();
 
-
-
-    public Contact(String name, long phoneNumber, String email) {
+    public Contact(String name, String phoneNumber, String email) {
         super(name, phoneNumber, email);
         idCounter++;
         this.id = idCounter;
@@ -47,7 +45,7 @@ public class Contact extends Person {
     public static void lookUpContact(){
         int id = Integer.parseInt(App.getCurrentId());
         if(Contact.getContactList().containsKey(id)){
-            System.out.println(contactList.get(id));
+            contactList.get(id).printContact();
         } else {
             System.err.println("No contact matches '" + id + "' --> Type 'show contacts' to see the list of available ids.");
         }
