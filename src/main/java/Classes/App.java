@@ -31,11 +31,11 @@ public class App {
         Command findOpportunity = new Command("lookup opportunity #", "lookup opportunity <IdNumber>", "print opportunity with ID = <IdNumber>", () -> Opportunity.lookUpOpportunity());
         Command showOpportunities = new Command("show opportunities", "show opportunities", "print list of all active opportunities", () -> Opportunity.showOpportunities());
         // LEADS
-        Command removeLead = new Command("remove #", "remove <IdNumber>", "remove lead with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
-        Command convertLead = new Command("convert #", "convert <IdNumber>", "convert lead with ID = <IdNumber> to new opportunity", () -> Command.printCommandsList()); // METHOD !!!
-        Command findLead = new Command("lookup lead #", "lookup lead <IdNumber>", "print lead with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
-        Command showLeads = new Command("show leads", "show leads", "print list of all active leads", () -> Command.printCommandsList()); // METHOD !!!
-        Command newLead = new Command("new lead", "new lead", "create new lead", () -> Command.printCommandsList()); // METHOD !!!
+        Command removeLead = new Command("remove #", "remove <IdNumber>", "remove lead with ID = <IdNumber>", () -> Lead.removeLead());
+        Command convertLead = new Command("convert #", "convert <IdNumber>", "convert lead with ID = <IdNumber> to new opportunity", () -> Lead.convertLead());
+        Command findLead = new Command("lookup lead #", "lookup lead <IdNumber>", "print lead with ID = <IdNumber>", () -> Lead.lookUpLead());
+        Command showLeads = new Command("show leads", "show leads", "print list of all active leads", () -> Lead.showLeads());
+        Command newLead = new Command("new lead", "new lead", "create new lead", () -> Lead.newLead());
         // APP
         Command commandList = new Command("command list", "command list", "print list of application's working commands", () -> Command.printCommandsList());
         Command exit = new Command("exit", "exit", "quit CRM application", () -> exitApp());
@@ -45,7 +45,7 @@ public class App {
             currentId = null;
 
             // Get command from user (case-insensitive)
-            String nextCommand = AppHelp.askForString("\nEnter next command:").toLowerCase().replaceAll("#", "");
+            String nextCommand = AppHelp.askForString("\nEnter next command:").toLowerCase().replaceAll("#", "-");
 
             // Get generic command and ID in case user's command contains one
             String[] commandWords = nextCommand.split(" ");
