@@ -20,7 +20,7 @@ public class Opportunity {
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
-        this.status = status;
+        this.status = Status.OPEN;
         opportunityList.put(id, this);
     }
 
