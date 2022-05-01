@@ -2,10 +2,10 @@ package Classes;
 
 public abstract class Person {
     private String name;
-    private long phoneNumber;
+    private String phoneNumber;
     private String email;
 
-    public Person(String name, long phoneNumber, String email) {
+    public Person(String name, String phoneNumber, String email) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -19,11 +19,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
