@@ -11,11 +11,10 @@ public class Account {
     private int employeeCount;
     private String city;
     private String country;
-    private List<Contact> contactList;
+    private List<Contacts> contactList;
     private List<Opportunity> opportunityList;
-
     public Account(Industry industry, int employeeCount, String city, String country,
-                   List<Contact> contactList, List<Opportunity> opportunityList) {
+                   List<Contacts> contactList, List<Opportunity> opportunityList) {
         idCounter++;
         this.accountId = idCounter;
         this.industry = industry;
@@ -79,11 +78,11 @@ public class Account {
         this.country = country;
     }
 
-    public List<Contact> getContactList() {
+    public List<Contacts> getContactList() {
         return contactList;
     }
 
-    public void setContactList(List<Contact> contactList) {
+    public void setContactList(List<Contacts> contactList) {
         this.contactList = contactList;
     }
 
