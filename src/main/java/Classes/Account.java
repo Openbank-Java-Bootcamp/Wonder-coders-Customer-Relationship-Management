@@ -1,6 +1,6 @@
 package Classes;
 
-import Enums.Industry;
+import Enums.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,20 +8,22 @@ import java.util.Map;
 
 public class Account {
 
+    private String companyName;
     private final int accountId;
     private static int idCounter = 0;
     private Industry industry;
     private int employeeCount;
     private String city;
     private String country;
-    private List<Contacts> contactList;
+    private List<Contact> contactList;
     private List<Opportunity> opportunityList;
 
     private static Map<Integer, Account> accountList = new HashMap<>();
 
-    public Account(Industry industry, int employeeCount, String city, String country,
-                   List<Contacts> contactList, List<Opportunity> opportunityList) {
+    public Account(String companyName, Industry industry, int employeeCount, String city, String country,
+                   List<Contact> contactList, List<Opportunity> opportunityList) {
         idCounter++;
+        this.companyName = companyName;
         this.accountId = idCounter;
         this.industry = industry;
         this.employeeCount = employeeCount;
@@ -34,13 +36,14 @@ public class Account {
     @Override
     public String toString() {
         return "Account: \n" +
+                "Company= " + accountId + "\n" +
                 "accountId=" + accountId + "\n" +
-                ", industry=" + industry + "\n" +
-                ", employeeCount=" + employeeCount + "\n" +
-                ", city='" + city + '\'' + "\n" +
-                ", country='" + country + '\'' + "\n" +
-                ", contactList=" + contactList + "\n" +
-                ", opportunityList=" + opportunityList + "\n";
+                "industry=" + industry + "\n" +
+                "employeeCount=" + employeeCount + "\n" +
+                "city='" + city + '\'' + "\n" +
+                "country='" + country + '\'' + "\n" +
+                "contactList=" + contactList + "\n" +
+                "opportunityList=" + opportunityList + "\n";
     }
 
     public void showAccounts() {
@@ -59,6 +62,14 @@ public class Account {
         } else {
             System.err.println("Account number " + accountId + "doesn't exist");
         }
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public int getAccountId() {
@@ -97,11 +108,11 @@ public class Account {
         this.country = country;
     }
 
-    public List<Contacts> getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 
-    public void setContactList(List<Contacts> contactList) {
+    public void setContactList(List<Contact> contactList) {
         this.contactList = contactList;
     }
 
