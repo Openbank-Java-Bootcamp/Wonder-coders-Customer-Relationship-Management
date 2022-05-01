@@ -78,7 +78,7 @@ public class Opportunity {
         System.out.println("--------------------------------------");
     }
 
-    public void lookUpOpportunity() {
+    public static void lookUpOpportunity() {
         int id = Integer.parseInt(App.getCurrentId());
 
         if (Opportunity.getOpportunityList().containsKey(id)) {
@@ -90,18 +90,32 @@ public class Opportunity {
         }
     }
 
-    public void showOpportunities() {
+    public static void showOpportunities() {
         System.out.println("List opportunities");
         opportunityList.forEach((id, opportunity) -> {
             opportunity.showOpportunity();
         });
     }
 
-    public void closeWon() {
-        this.status = Status.CLOSED_WON;
+    public static void closeWon() {
+        int id = Integer.parseInt(App.getCurrentId());
+
+        if (Opportunity.getOpportunityList().containsKey(id)) {
+            Opportunity opportunity = opportunityList.get(id);
+            opportunity.setStatus(Status.CLOSED_WON);
+        } else  {
+            System.err.println("No opportunity with id " + id);
+        }
     }
 
-    public void closeLost() {
-        this.status = Status.CLOSED_LOST;
+    public static void closeLost() {
+        int id = Integer.parseInt(App.getCurrentId());
+
+        if (Opportunity.getOpportunityList().containsKey(id)) {
+            Opportunity opportunity = opportunityList.get(id);
+            opportunity.setStatus(Status.CLOSED_LOST);
+        } else  {
+            System.err.println("No opportunity with id " + id);
+        }
     }
 }
