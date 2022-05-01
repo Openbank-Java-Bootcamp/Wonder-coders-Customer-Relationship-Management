@@ -21,7 +21,7 @@ public class Account {
     private static Map<Integer, Account> accountList = new HashMap<>();
 
 
-    public Account(String companyName, Industry industry, int employeeCount, String city, String country, List<Contact> contactList, List<Opportunity> opportunityList) {
+    public Account(Industry industry, int employeeCount, String city, String country, String companyName) {
         idCounter++;
         this.companyName = companyName;
         this.accountId = idCounter;
@@ -29,8 +29,7 @@ public class Account {
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
-        this.contactList = contactList;
-        this.opportunityList = opportunityList;
+
     }
 
     @Override
@@ -46,7 +45,7 @@ public class Account {
                 "opportunityList=" + opportunityList + "\n";
     }
 
-    public void showAccounts() {
+    public static void showAccounts() {  // STATIC <----------------------- OJO
         System.out.println("Accounts list");
         accountList.forEach((id, account) -> {
             account.toString();
