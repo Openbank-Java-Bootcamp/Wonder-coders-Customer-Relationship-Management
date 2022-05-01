@@ -26,10 +26,10 @@ public class App {
         Command findAccount = new Command("lookup account #", "lookup account <IdNumber>", "print account with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
         Command showAccounts = new Command("show accounts", "show accounts", "print list of all active accounts", () -> Command.printCommandsList()); // METHOD !!!
         // OPPORTUNITIES
-        Command closeWon = new Command("close-won #", "close-won <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = WON", () -> Command.printCommandsList()); // METHOD !!!
-        Command closeLost = new Command("close-lost #", "close-lost <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = LOST", () -> Command.printCommandsList()); // METHOD !!!
-        Command findOpportunity = new Command("lookup opportunity #", "lookup opportunity <IdNumber>", "print opportunity with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
-        Command showOpportunities = new Command("show opportunities", "show opportunities", "print list of all active opportunities", () -> Command.printCommandsList()); // METHOD !!!
+        Command closeWon = new Command("close-won #", "close-won <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = WON", () -> Opportunity.closeWon());
+        Command closeLost = new Command("close-lost #", "close-lost <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = LOST", () -> Opportunity.closeLost());
+        Command findOpportunity = new Command("lookup opportunity #", "lookup opportunity <IdNumber>", "print opportunity with ID = <IdNumber>", () -> Opportunity.lookUpOpportunity());
+        Command showOpportunities = new Command("show opportunities", "show opportunities", "print list of all active opportunities", () -> Opportunity.showOpportunities());
         // LEADS
         Command removeLead = new Command("remove #", "remove <IdNumber>", "remove lead with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
         Command convertLead = new Command("convert #", "convert <IdNumber>", "convert lead with ID = <IdNumber> to new opportunity", () -> Command.printCommandsList()); // METHOD !!!
