@@ -4,6 +4,7 @@ import Enums.*;
 
 import java.util.*;
 
+
 public class Opportunity {
     private final int id;
     private static int idCount;
