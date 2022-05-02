@@ -2,6 +2,7 @@ package Classes;
 
 import Enums.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,8 @@ public class Account {
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
+        this.contactList = new ArrayList<>();
+        this.opportunityList = new ArrayList<>();
         accountList.put(this.accountId,this);
     }
 
@@ -43,7 +46,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account: \n" +
-                "Company= " + accountId + "\n" +
+                "Company= " + companyName + "\n" +
                 "accountId=" + accountId + "\n" +
                 "industry=" + industry + "\n" +
                 "employeeCount=" + employeeCount + "\n" +
@@ -56,7 +59,7 @@ public class Account {
     public static void showAccounts() { 
         System.out.println("Accounts list");
         accountList.forEach((id, account) -> {
-            account.toString();
+            System.out.println(account.toString());
         });
     }
 
@@ -65,7 +68,7 @@ public class Account {
         if (Account.getAccountList().containsKey(accountId)) {
             Account account = accountList.get(accountId);
             System.out.println("Account number Id " + accountId + "\n");
-            account.toString();
+            System.out.println(account.toString());
         } else {
             System.err.println("Account number " + accountId + "doesn't exist");
         }
