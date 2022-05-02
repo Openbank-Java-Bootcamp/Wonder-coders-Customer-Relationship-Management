@@ -20,11 +20,11 @@ public class App {
     public static void initialize() {
         // COMMANDS:
         // CONTACTS
-        Command findContact = new Command("lookup contact #", "lookup contact <IdNumber>", "print contact with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
-        Command showContacts = new Command("show contacts", "show contacts", "print list of all active contacts", () -> Command.printCommandsList()); // METHOD !!!
+        Command findContact = new Command("lookup contact #", "lookup contact <IdNumber>", "print contact with ID = <IdNumber>", () -> Contact.lookUpContact());
+        Command showContacts = new Command("show contacts", "show contacts", "print list of all active contacts", () -> Contact.showContacts());
         // ACCOUNTS
-        Command findAccount = new Command("lookup account #", "lookup account <IdNumber>", "print account with ID = <IdNumber>", () -> Command.printCommandsList()); // METHOD !!!
-        Command showAccounts = new Command("show accounts", "show accounts", "print list of all active accounts", () -> Command.printCommandsList()); // METHOD !!!
+        Command findAccount = new Command("lookup account #", "lookup account <IdNumber>", "print account with ID = <IdNumber>", () -> Account.lookUpAccounts());
+        Command showAccounts = new Command("show accounts", "show accounts", "print list of all active accounts", () -> Account.showAccounts());
         // OPPORTUNITIES
         Command closeWon = new Command("close-won #", "close-won <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = WON", () -> Opportunity.closeWon());
         Command closeLost = new Command("close-lost #", "close-lost <IdNumber>", "Closing opportunity with ID = <IdNumber> with status = LOST", () -> Opportunity.closeLost());

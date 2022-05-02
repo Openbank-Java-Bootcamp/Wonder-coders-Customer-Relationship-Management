@@ -21,6 +21,7 @@ public class Account {
     private static Map<Integer, Account> accountList = new HashMap<>();
 
 
+
     public Account(String companyName, Industry industry, int employeeCount, String city, String country) {
         idCounter++;
         this.companyName = companyName;
@@ -52,7 +53,7 @@ public class Account {
                 "opportunityList=" + opportunityList + "\n";
     }
 
-    public void showAccounts() {
+    public static void showAccounts() { 
         System.out.println("Accounts list");
         accountList.forEach((id, account) -> {
             account.toString();

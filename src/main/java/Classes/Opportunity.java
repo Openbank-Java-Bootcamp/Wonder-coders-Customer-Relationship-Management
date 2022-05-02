@@ -14,14 +14,14 @@ public class Opportunity {
 
     private static Map<Integer, Opportunity> opportunityList = new HashMap<>();
 
-    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status) {
+    public Opportunity(Product product, int quantity, Contact decisionMaker) {
         idCount++;
         this.id = idCount;
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
         this.status = Status.OPEN;
-        opportunityList.put(id, this);
+        opportunityList.put(this.id, this);
     }
 
     public int getId() {
@@ -88,7 +88,7 @@ public class Opportunity {
             System.out.println("This is the opportunity with id " + id);
             opportunity.showOpportunity();
         } else {
-            System.err.println("No opportunity with id " + id);
+            System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
     }
 
@@ -111,7 +111,7 @@ public class Opportunity {
             Opportunity opportunity = opportunityList.get(id);
             opportunity.setStatus(Status.CLOSED_WON);
         } else {
-            System.err.println("No opportunity with id " + id);
+            System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
     }
 
@@ -123,7 +123,7 @@ public class Opportunity {
             Opportunity opportunity = opportunityList.get(id);
             opportunity.setStatus(Status.CLOSED_LOST);
         } else {
-            System.err.println("No opportunity with id " + id);
+            System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
     }
 }

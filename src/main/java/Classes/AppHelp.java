@@ -1,5 +1,8 @@
 package Classes;
 
+import Enums.Industry;
+import Enums.Product;
+
 import java.util.Scanner;
 
 public class AppHelp {
@@ -74,10 +77,44 @@ public class AppHelp {
         }
         return response - 1;
     }
+    public static int selectOption(String instruction, Product[] optionsList) {
+        //Show menu
+        System.out.println("\n" + instruction);
+        printList(optionsList);
+        //Ask for selected option
+        int response = askForIntInRange("\n-> Type a number from 1 to " + (optionsList.length), 1, optionsList.length);
+        //Show selected option
+        if (response > 0 && response < optionsList.length + 1) {
+            System.out.println("You have selected option " + response + ": " + optionsList[response - 1] + "\n");
+        }
+        return response - 1;
+    }
+    public static int selectOption(String instruction, Industry[] optionsList) {
+        //Show menu
+        System.out.println("\n" + instruction);
+        printList(optionsList);
+        //Ask for selected option
+        int response = askForIntInRange("\n-> Type a number from 1 to " + (optionsList.length), 1, optionsList.length);
+        //Show selected option
+        if (response > 0 && response < optionsList.length + 1) {
+            System.out.println("You have selected option " + response + ": " + optionsList[response - 1] + "\n");
+        }
+        return response - 1;
+    }
     //Print List
     public static void printList(String[] optionsList) {
         for (int i = 0; i < optionsList.length; i++) {
             System.out.println("\t\t" + (i + 1) + "." + optionsList[i]);
+        }
+    }
+    public static void printList(Product[] optionsList) {
+        for (int i = 0; i < optionsList.length; i++) {
+            System.out.println("\t\t" + (i + 1) + "." + optionsList[i].toString());
+        }
+    }
+    public static void printList(Industry[] optionsList) {
+        for (int i = 0; i < optionsList.length; i++) {
+            System.out.println("\t\t" + (i + 1) + "." + optionsList[i].toString());
         }
     }
 
