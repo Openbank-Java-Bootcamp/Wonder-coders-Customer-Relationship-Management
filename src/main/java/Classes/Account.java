@@ -21,7 +21,7 @@ public class Account {
     private static Map<Integer, Account> accountList = new HashMap<>();
 
 
-    public Account(String companyName, Industry industry, int employeeCount, String city, String country, List<Contact> contactList, List<Opportunity> opportunityList) {
+    public Account(String companyName, Industry industry, int employeeCount, String city, String country) {
         idCounter++;
         this.companyName = companyName;
         this.accountId = idCounter;
@@ -29,8 +29,14 @@ public class Account {
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
-        this.contactList = contactList;
-        this.opportunityList = opportunityList;
+        accountList.put(this.accountId,this);
+    }
+
+    public void addContacts(Contact contact){
+        contactList.add(contact);
+    }
+    public void addOpportunities(Opportunity opportunity){
+        opportunityList.add(opportunity);
     }
 
     @Override
