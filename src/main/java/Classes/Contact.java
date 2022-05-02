@@ -34,6 +34,15 @@ public class Contact extends Person {
         System.out.println("Email: "+ getEmail());
     }
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", Name ='" + getName() + '\'' +
+                ", Phone Number ='" + getPhoneNumber() + '\'' +
+                ", Email ='" + getEmail() + '\'' +
+                '}';
+    }
 
     public static void showContacts(){
         System.out.println("Contacts list");

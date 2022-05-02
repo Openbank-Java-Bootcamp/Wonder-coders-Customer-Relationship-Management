@@ -65,6 +65,7 @@ public class Lead extends Person {
         String email = AppHelp.askForString("Email :");
         String companyName = AppHelp.askForString("Company name :");
         Lead newLead = new Lead(name, phoneNumber, email, companyName);
+        System.out.println("New Lead created" + newLead.toString());
     }
 
     public static void showLeads() {
@@ -86,6 +87,7 @@ public class Lead extends Person {
     public static void removeLead() {
         int id = Integer.parseInt(App.getCurrentId());
         if (Lead.leadList.containsKey(id)) {
+            System.out.println("Lead deleted" + leadList.get(id).toString());
             leadList.remove(id);
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
@@ -95,27 +97,43 @@ public class Lead extends Person {
     public static void convertLead() {
         int id = Integer.parseInt(App.getCurrentId());
         if (Lead.leadList.containsKey(id)) {
+
+            //Define all the parameters first.
             String name = leadList.get(id).getName();
             String phoneNumber = leadList.get(id).getPhoneNumber();
             String email = leadList.get(id).getEmail();
             String companyName = leadList.get(id).getCompanyName();
-            Contact decisionMaker = new Contact(name, phoneNumber, email);
             Product [] productType = {Product.HYBRID, Product.FLATBED, Product.BOX};
             Industry [] industryType = {Industry.PRODUCE, Industry.ECOMMERCE, Industry.MANUFACTURING, Industry.MEDICAL, Industry.OTHER};
-            Product product = productType[AppHelp.selectOption("Which product the customer is interested in? HYBRID, FLATBED or BOX", productType)];
+
+            //Create a new contact with the information of the lead.
+            Contact decisionMaker = new Contact(name, phoneNumber, email);
+            System.out.println("New contact created from Lead " + id);
+            System.out.println(decisionMaker.toString());
+
+            //Create a new opportunity with the information we asked the user and the new contact created.
+            System.out.println("Creating a new opportunity.");
+            Product product = productType[AppHelp.selectOption("Which product the customer is interested in?", productType)];
             int quantity = AppHelp.askForInt("How many of them does the customer want?");
             Opportunity newOpportunity = new Opportunity(product, quantity, decisionMaker);
-            Industry industry = industryType[AppHelp.selectOption("What industry is the company in? PRODUCE, ECOMMERCE, MANUFACTURING, MEDICAL or OTHER", industryType)];
+            System.out.println("New opportunity created from Lead " + id);
+            System.out.println(newOpportunity.toString());
+
+            //Create a new account with the information we asked the user and the information of the lead.
+            System.out.println("Creating a new account.");
+            Industry industry = industryType[AppHelp.selectOption("What industry is the company in?", industryType)];
             int employeeCount = AppHelp.askForInt("How many employees are in the company?");
             String city = AppHelp.askForString("What city is the company located in?");
             String country = AppHelp.askForString("What country is the company from?");
-            Account newAccount = new Account(industry, employeeCount, city, country, companyName);
-            List<Contact> contactList = new ArrayList<>();
-            contactList.add(decisionMaker);
-            newAccount.setContactList(contactList);
-            List<Opportunity> opportunityList = new ArrayList<>();
-            opportunityList.add(newOpportunity);
-            newAccount.setOpportunityList(opportunityList);
+            Account newAccount = new Account(companyName, industry, employeeCount, city, country);
+
+            //Add the newly created decision maker and opportunity to the new accounts contacts list and opportunities list.
+            newAccount.addContacts(decisionMaker);
+            newAccount.addOpportunities(newOpportunity);
+            System.out.println("New account created from Lead " + id);
+            System.out.println(newAccount.toString());
+
+            //Remove the lead from the memory once all the process is completed.
             removeLead();
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
