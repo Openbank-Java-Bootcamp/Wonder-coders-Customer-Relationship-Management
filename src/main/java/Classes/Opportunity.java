@@ -70,13 +70,30 @@ public class Opportunity {
 
     // Show details of an opportunity
     public void showOpportunity() {
-        System.out.println("Opportunity");
+        /*System.out.println("Opportunity");
         System.out.println("Id: " + id);
         System.out.println("Product: " + product);
         System.out.println("Quantity: " + quantity);
         System.out.println("Decision Maker: " + decisionMaker);
         System.out.println("Status: " + status);
-        System.out.println("--------------------------------------");
+        System.out.println("--------------------------------------");*/
+        String l1 = "%-2.2s";
+        String s1 = "%-5.5s";
+        String s2 = "%-10.10s";
+        String s3 = "%-12.12s";
+        String s4 = "%-72.72s";
+        String s5 = "%-6.6s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + s4 + " " + s5 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "PRODUCT", "QUANTITY", "DECISION MAKER", "STATUS", " |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "|", id, product, quantity, decisionMaker, status, "|");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     // Show opportunity with id
@@ -86,7 +103,24 @@ public class Opportunity {
         if (Opportunity.getOpportunityList().containsKey(id)) { // If opportunity with exists
             Opportunity opportunity = opportunityList.get(id);
             System.out.println("This is the opportunity with id " + id);
-            opportunity.showOpportunity();
+            /*opportunity.showOpportunity();*/
+            String l1 = "%-2.2s";
+            String s1 = "%-5.5s";
+            String s2 = "%-10.10s";
+            String s3 = "%-12.12s";
+            String s4 = "%-70.70s";
+            String s5 = "%-8.8s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + s4 + " " + s5 + " " + l2;
+            System.out.print(TextColor.BLUE);
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ID", "PRODUCT", "QUANTITY", "DECISION MAKER", "STATUS", " |");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "|", opportunity.id, opportunity.product, opportunity.quantity, opportunity.decisionMaker, opportunity.status, "|");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
@@ -98,9 +132,28 @@ public class Opportunity {
             System.err.println("Opportunity list is empty");
         }
         System.out.println("Opportunity list");
-        opportunityList.forEach((id, opportunity) -> {
+        /*opportunityList.forEach((id, opportunity) -> {
             opportunity.showOpportunity();
+        });*/
+        String l1 = "%-2.2s";
+        String s1 = "%-5.5s";
+        String s2 = "%-10.10s";
+        String s3 = "%-12.12s";
+        String s4 = "%-70.70s";
+        String s5 = "%-8.8s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + s4 + " " + s5 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "PRODUCT", "QUANTITY", "DECISION MAKER", "STATUS", " |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        opportunityList.forEach((key, value) -> {
+            System.out.format(format, "|", value.id, value.product, value.quantity, value.decisionMaker, value.status, "|");
+            System.out.println();
         });
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     // Change status to CLOSE_WON
