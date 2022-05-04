@@ -37,7 +37,7 @@ public class App {
         Command showLeads = new Command("show leads", "show leads", "print list of all active leads", () -> Lead.showLeads());
         Command newLead = new Command("new lead", "new lead", "create new lead", () -> Lead.newLead());
         // APP
-        Command commandList = new Command("command list", "command list", "print list of application's working commands", () -> Command.printCommandsList());
+        Command commandList = new Command("command list", "command list", "print list of application's working commands", () -> Command.printCommandsTable());
         Command exit = new Command("exit", "exit", "quit CRM application", () -> exitApp());
 
         do {
