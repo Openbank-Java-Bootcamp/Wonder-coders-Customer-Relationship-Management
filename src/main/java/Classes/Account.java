@@ -21,12 +21,14 @@ public class Account {
 
     private static Map<Integer, Account> accountList = new HashMap<>();
 
-
+    public Account() {
+        idCounter++;
+        this.accountId = idCounter;
+    }
 
     public Account(String companyName, Industry industry, int employeeCount, String city, String country) {
-        idCounter++;
+        this();
         this.companyName = companyName;
-        this.accountId = idCounter;
         this.industry = industry;
         this.employeeCount = employeeCount;
         this.city = city;
@@ -43,19 +45,32 @@ public class Account {
         opportunityList.add(opportunity);
     }
 
-    @Override
-    public String toString() {
-        return "Account: \n" +
-                "Company= " + companyName + "\n" +
-                "accountId=" + accountId + "\n" +
-                "industry=" + industry + "\n" +
-                "employeeCount=" + employeeCount + "\n" +
-                "city='" + city + '\'' + "\n" +
-                "country='" + country + '\'' + "\n" +
-                "contactList=" + contactList + "\n" +
-                "opportunityList=" + opportunityList + "\n";
+    public static void printCommandsTable() {
+        String l1 = "%-2.2s";
+        String s1 = "%-20.20s";
+        String s2 = "%-20.20s";
+        String s3 = "%-20.20s";
+        String s4 = "%-20.20s";
+        String s5 = "%-20.20s";
+        String s6 = "%-20.20s";
+        String s7 = "%-70.70s";
+        String s8 = "%-70.70s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| ACCOUNT LIST                                                                                                    |");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        accountList.forEach((key, value) -> {
+            System.out.format(format, "|", value.getAccountId(), value.getCompanyName(), value.getIndustry(),value.getEmployeeCount(),value.getCity(),value.getCountry(),value.getContactList(),value.getOpportunityList(), "|");
+            System.out.println();
+        });
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
-
     public static void showAccounts() { 
         System.out.println("Accounts list");
         accountList.forEach((id, account) -> {
