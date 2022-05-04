@@ -74,7 +74,9 @@ public class Lead extends Person {
         String s2 = "%-70.70s";
         String l2 = "%2.2s";
         String format = l1 + " " + s1 + " " + s2 + " " + l2;
-
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| LEADS LIST                                                                                                      |");
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.format(format, "| ","ID", "NAME", " |");
         System.out.println();
@@ -84,6 +86,7 @@ public class Lead extends Person {
             System.out.println();
         });
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     public static void lookUpLead() {
@@ -97,7 +100,9 @@ public class Lead extends Person {
             String s5 = "%-25.25s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
-
+            System.out.print(TextColor.BLUE);
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| LEAD                                                                                                            |");
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL","COMPANY NAME", " |");
             System.out.println();
@@ -105,6 +110,7 @@ public class Lead extends Person {
             System.out.format(format, "|", leadList.get(id).getId(), leadList.get(id).getName(), leadList.get(id).getPhoneNumber(), leadList.get(id).getEmail(), leadList.get(id).getCompanyName(), "|");
             System.out.println();
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
         }

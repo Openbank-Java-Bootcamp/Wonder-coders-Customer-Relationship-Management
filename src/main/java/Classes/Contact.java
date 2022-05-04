@@ -52,7 +52,9 @@ public class Contact extends Person {
         String s4 = "%-33.33s";
         String l2 = "%2.2s";
         String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + l2;
-
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| CONTACT                                                                                                         |");
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL", " |");
         System.out.println();
@@ -62,6 +64,7 @@ public class Contact extends Person {
             System.out.println();
         });
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     public static void lookUpContact(){
@@ -74,7 +77,9 @@ public class Contact extends Person {
             String s4 = "%-33.33s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + l2;
-
+            System.out.print(TextColor.BLUE);
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| CONTACT                                                                                                         |");
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL", " |");
             System.out.println();
@@ -82,6 +87,7 @@ public class Contact extends Person {
             System.out.format(format, "|", contactList.get(id).getId(), contactList.get(id).getName(), contactList.get(id).getPhoneNumber(), contactList.get(id).getEmail(), "|");
             System.out.println();
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("No contact matches '" + id + "' --> Type 'show contacts' to see the list of available ids.");
         }
