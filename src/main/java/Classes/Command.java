@@ -34,20 +34,25 @@ public class Command {
         });
     }
     public static void printCommandsTable() {
+        String l1 = "%-2.2s";
         String s1 = "%-30.30s";
         String s2 = "%-7.7s";
         String s3 = "%-70.70s";
-        String format = s1 + " " + s2 + " " + s3;
-
-        System.out.println("---------------------------------------------------------------------------------------------------");
-        System.out.format(format, "COMMAND", " ", "DESCRIPTION");
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| COMMAND LIST                                                                                                    |");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","COMMAND", " ", "DESCRIPTION", " |");
         System.out.println();
-        System.out.println("---------------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
         commandsList.forEach((key, value) -> {
-            System.out.format(format, value.getCommandSampleText(), " --> ", value.getDescription());
+            System.out.format(format, "|", value.getCommandSampleText(), " --> ", value.getDescription(), "|");
             System.out.println();
         });
-        System.out.println("---------------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     public String getCommandSampleText() {
