@@ -3,6 +3,8 @@ package Classes;
 import Enums.Industry;
 import Enums.Product;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AppHelp {
@@ -116,6 +118,18 @@ public class AppHelp {
         for (int i = 0; i < optionsList.length; i++) {
             System.out.println("\t\t" + (i + 1) + "." + optionsList[i].toString());
         }
+    }
+
+    //Map<String, Object> map
+    public static void printMapAsTable(String[] headers, Map<String, Command> commandsList) {
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.printf("%20s %5s %40s", headers[0], headers[1], headers[2]+"\n");
+        System.out.println();
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        commandsList.forEach((key, value) -> {
+            System.out.format("%10s %10s %10s", value.getCommandSampleText(), " --> ", value.getDescription()+"\n");
+        });
+        System.out.println("----------------------------------------------------------------------------------------------------");
     }
 
 }
