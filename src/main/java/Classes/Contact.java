@@ -36,7 +36,7 @@ public class Contact extends Person {
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "{" +
                 "id=" + id +
                 ", Name ='" + getName() + '\'' +
                 ", Phone Number ='" + getPhoneNumber() + '\'' +
@@ -45,16 +45,49 @@ public class Contact extends Person {
     }
 
     public static void showContacts(){
-        System.out.println("Contacts list");
-        contactList.forEach((id,contact)-> {
-            contact.printContact();
+        String l1 = "%-2.2s";
+        String s1 = "%-7.7s";
+        String s2 = "%-33.33s";
+        String s3 = "%-33.33s";
+        String s4 = "%-33.33s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| CONTACT                                                                                                         |");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL", " |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        contactList.forEach((key, value) -> {
+            System.out.format(format, "|", value.getId(), value.getName(), value.getPhoneNumber(),value.getEmail(), " |");
+            System.out.println();
         });
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     public static void lookUpContact(){
         int id = Integer.parseInt(App.getCurrentId());
         if(Contact.getContactList().containsKey(id)){
-            contactList.get(id).printContact();
+            String l1 = "%-2.2s";
+            String s1 = "%-7.7s";
+            String s2 = "%-33.33s";
+            String s3 = "%-33.33s";
+            String s4 = "%-33.33s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + l2;
+            System.out.print(TextColor.BLUE);
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| CONTACT                                                                                                         |");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL", " |");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "|", contactList.get(id).getId(), contactList.get(id).getName(), contactList.get(id).getPhoneNumber(), contactList.get(id).getEmail(), "|");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("No contact matches '" + id + "' --> Type 'show contacts' to see the list of available ids.");
         }
