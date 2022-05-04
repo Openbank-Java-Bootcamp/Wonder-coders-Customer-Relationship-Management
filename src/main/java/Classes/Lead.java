@@ -117,7 +117,7 @@ public class Lead extends Person {
             int quantity = AppHelp.askForInt("How many of them does the customer want?");
             Opportunity newOpportunity = new Opportunity(product, quantity, decisionMaker);
             System.out.println("New opportunity created from Lead " + id);
-            System.out.println(newOpportunity.toString());
+            newOpportunity.showOpportunity();
 
             //Create a new account with the information we asked the user and the information of the lead.
             System.out.println("Creating a new account.");
