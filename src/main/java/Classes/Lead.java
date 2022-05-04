@@ -50,7 +50,7 @@ public class Lead extends Person {
 
     @Override
     public String toString() {
-        return "Lead{" +
+        return "{" +
                 "id =" + id +
                 ", Name ='" + getName() + '\'' +
                 ", Phone Number ='" + getPhoneNumber() + '\'' +
@@ -69,16 +69,42 @@ public class Lead extends Person {
     }
 
     public static void showLeads() {
-        System.out.println("Leads list");
-        leadList.forEach((id, lead) -> {
-            lead.printLead();
+        String l1 = "%-2.2s";
+        String s1 = "%-37.37s";
+        String s2 = "%-70.70s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " " + l2;
+
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "NAME", " |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        leadList.forEach((key, value) -> {
+            System.out.format(format, "|", value.getId(), value.getName(), "|");
+            System.out.println();
         });
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
     }
 
     public static void lookUpLead() {
         int id = Integer.parseInt(App.getCurrentId());
         if (Lead.leadList.containsKey(id)) {
-            System.out.println(leadList.get(id).toString());
+            String l1 = "%-2.2s";
+            String s1 = "%-7.7s";
+            String s2 = "%-25.25s";
+            String s3 = "%-25.25s";
+            String s4 = "%-25.25s";
+            String s5 = "%-25.25s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
+
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL","COMPANY NAME", " |");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "|", leadList.get(id).getId(), leadList.get(id).getName(), leadList.get(id).getPhoneNumber(), leadList.get(id).getEmail(), leadList.get(id).getCompanyName(), "|");
+            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------------------------------------");
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
         }
