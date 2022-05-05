@@ -63,7 +63,9 @@ public class App {
             currentId = null;
 
             // Get command from user (case-insensitive)
+            System.out.print(TextColor.GREEN);
             String nextCommand = AppHelp.askForString("\nEnter next command:").toLowerCase().replaceAll("#", "-");
+            System.out.print(TextColor.RESET);
 
             // Get generic command and ID in case user's command contains one
             String[] commandWords = nextCommand.split(" ");
