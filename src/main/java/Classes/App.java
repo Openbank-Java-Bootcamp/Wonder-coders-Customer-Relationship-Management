@@ -6,6 +6,24 @@ public class App {
     private static String currentCommand;
     private static String currentId;
 
+    public static void showIntro() {
+        System.out.print(TextColor.WHITE_BOLD_BRIGHT);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                                                welcome");
+        System.out.println("                                                  to");
+        System.out.println("                                         ·······················");
+        System.out.println("                                    ···········WONDER CRM···········");
+        System.out.println("                                         ·······················");
+        System.out.println("                                                  by");
+        System.out.println("                                             wonder-coders");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("");
+        System.out.print(TextColor.RESET);
+        System.out.println("These are all available commands:");
+        Command.printCommandsTable();
+    }
+
+
     public static String getCurrentId() { return currentId; }
 
     private static boolean isExit() {
@@ -39,7 +57,7 @@ public class App {
         // APP
         Command commandList = new Command("command list", "command list", "print list of application's working commands", () -> Command.printCommandsTable());
         Command exit = new Command("exit", "exit", "quit CRM application", () -> exitApp());
-
+        showIntro();
         do {
             currentCommand = null;
             currentId = null;
