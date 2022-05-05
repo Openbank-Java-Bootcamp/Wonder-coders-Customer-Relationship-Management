@@ -40,7 +40,9 @@ public class Command {
         String s3 = "%-70.70s";
         String l2 = "%2.2s";
         String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + l2;
-
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| COMMAND LIST                                                                                                    |");
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.format(format, "| ","COMMAND", " ", "DESCRIPTION", " |");
         System.out.println();
@@ -50,6 +52,7 @@ public class Command {
             System.out.println();
         });
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     public String getCommandSampleText() {
