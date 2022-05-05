@@ -45,45 +45,82 @@ public class Account {
         opportunityList.add(opportunity);
     }
 
-    public static void printCommandsTable() {
-        String l1 = "%-2.2s";
-        String s1 = "%-20.20s";
-        String s2 = "%-20.20s";
-        String s3 = "%-20.20s";
-        String s4 = "%-20.20s";
-        String s5 = "%-20.20s";
-        String s6 = "%-20.20s";
-        String s7 = "%-70.70s";
-        String s8 = "%-70.70s";
-        String l2 = "%2.2s";
-        String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
-        System.out.print(TextColor.BLUE);
-        System.out.println("-------------------------------------------------------------------------------------------------------------------");
-        System.out.println("| ACCOUNT LIST                                                                                                    |");
-        System.out.println("-------------------------------------------------------------------------------------------------------------------");
-        System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
-        System.out.println();
-        System.out.println("-------------------------------------------------------------------------------------------------------------------");
-        accountList.forEach((key, value) -> {
-            System.out.format(format, "|", value.getAccountId(), value.getCompanyName(), value.getIndustry(),value.getEmployeeCount(),value.getCity(),value.getCountry(),value.getContactList(),value.getOpportunityList(), "|");
+    public static void showAccounts() {
+            String l1 = "%-2.2s";
+            String s1 = "%-20.20s";
+            String s2 = "%-20.20s";
+            String s3 = "%-20.20s";
+            String s4 = "%-20.20s";
+            String s5 = "%-20.20s";
+            String s6 = "%-20.20s";
+            String s7 = "%-20.20s";
+            String s8 = "%-20.20s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
+            System.out.print(TextColor.BLUE);
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| ACCOUNT LIST                                                                                                                                                                     |");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
             System.out.println();
-        });
-        System.out.println("-------------------------------------------------------------------------------------------------------------------");
-        System.out.print(TextColor.RESET);
-    }
-    public static void showAccounts() { 
-        System.out.println("Accounts list");
-        accountList.forEach((id, account) -> {
-            System.out.println(account.toString());
-        });
-    }
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            accountList.forEach((key, value) -> {
+                System.out.format(format, "|", value.getAccountId(), value.getCompanyName(), value.getIndustry(),value.getEmployeeCount(),value.getCity(),value.getCountry(),value.getContactList(),value.getOpportunityList(), "|");
+                System.out.println();
+            });
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
+        }
+    public void showAccount() {
+            String l1 = "%-2.2s";
+            String s1 = "%-20.20s";
+            String s2 = "%-20.20s";
+            String s3 = "%-20.20s";
+            String s4 = "%-20.20s";
+            String s5 = "%-20.20s";
+            String s6 = "%-20.20s";
+            String s7 = "%-20.20s";
+            String s8 = "%-20.20s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
+            System.out.print(TextColor.BLUE);
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| ACCOUNT                                                                                                                                                                              |");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
+            System.out.println();
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "|", accountId, companyName, industry,employeeCount,city,country,contactList,opportunityList, "|");
+            System.out.println();
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
+        }
 
     public static void lookUpAccounts() {
         int accountId = Integer.parseInt(App.getCurrentId());
         if (Account.getAccountList().containsKey(accountId)) {
-            Account account = accountList.get(accountId);
-            System.out.println("Account number Id " + accountId + "\n");
-            System.out.println(account.toString());
+            String l1 = "%-2.2s";
+            String s1 = "%-20.20s";
+            String s2 = "%-20.20s";
+            String s3 = "%-20.20s";
+            String s4 = "%-20.20s";
+            String s5 = "%-20.20s";
+            String s6 = "%-20.20s";
+            String s7 = "%-20.20s";
+            String s8 = "%-20.20s";
+            String l2 = "%2.2s";
+            String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
+            System.out.print(TextColor.BLUE);
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| ACCOUNT                                                                                                                                                                              |");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
+            System.out.println();
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.format(format, "|", accountList.get(accountId).getAccountId(), accountList.get(accountId).getCompanyName(), accountList.get(accountId).getIndustry(),accountList.get(accountId).getEmployeeCount(),accountList.get(accountId).getCity(),accountList.get(accountId).getCountry(),accountList.get(accountId).getContactList(),accountList.get(accountId).getOpportunityList(), "|");
+            System.out.println();
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("Account number " + accountId + "doesn't exist");
         }
