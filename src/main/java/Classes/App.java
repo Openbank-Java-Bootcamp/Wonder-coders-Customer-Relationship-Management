@@ -7,6 +7,7 @@ public class App {
     private static String currentId;
 
     public static void showIntro() {
+        System.out.print(TextColor.WHITE_BOLD_BRIGHT);
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.println("                                                welcome");
         System.out.println("                                                  to");
@@ -17,6 +18,7 @@ public class App {
         System.out.println("                                             wonder-coders");
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.println("");
+        System.out.print(TextColor.RESET);
         System.out.println("These are all available commands:");
         Command.printCommandsTable();
     }
