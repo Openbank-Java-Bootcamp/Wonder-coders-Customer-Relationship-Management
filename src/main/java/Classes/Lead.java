@@ -42,10 +42,26 @@ public class Lead extends Person {
         return leadList;
     }
 
-    public void printLead() {
-        System.out.println("Lead");
-        System.out.println("Id: " + id);
-        System.out.println("Name: " + getName());
+    public void showLead() {
+        String l1 = "%-2.2s";
+        String s1 = "%-7.7s";
+        String s2 = "%-25.25s";
+        String s3 = "%-25.25s";
+        String s4 = "%-25.25s";
+        String s5 = "%-25.25s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| LEAD                                                                                                           |");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL","COMPANY NAME", "|");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "|", id, getName(), getPhoneNumber(), getEmail(), getCompanyName(), "|");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
     }
 
     @Override
@@ -65,7 +81,8 @@ public class Lead extends Person {
         String email = AppHelp.askForString("Email :");
         String companyName = AppHelp.askForString("Company name :");
         Lead newLead = new Lead(name, phoneNumber, email, companyName);
-        System.out.println("New Lead created" + newLead.toString());
+        System.out.println("New Lead created");
+        newLead.showLead();
     }
 
     public static void showLeads() {
@@ -102,9 +119,9 @@ public class Lead extends Person {
             String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
             System.out.print(TextColor.BLUE);
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
-            System.out.println("| LEAD                                                                                                            |");
+            System.out.println("| LEAD                                                                                                           |");
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
-            System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL","COMPANY NAME", " |");
+            System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL","COMPANY NAME", "|");
             System.out.println();
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "|", leadList.get(id).getId(), leadList.get(id).getName(), leadList.get(id).getPhoneNumber(), leadList.get(id).getEmail(), leadList.get(id).getCompanyName(), "|");
@@ -119,7 +136,8 @@ public class Lead extends Person {
     public static void removeLead() {
         int id = Integer.parseInt(App.getCurrentId());
         if (Lead.leadList.containsKey(id)) {
-            System.out.println("Lead deleted" + leadList.get(id).toString());
+            System.out.println("Lead deleted");
+            leadList.get(id).showLead();
             leadList.remove(id);
         } else {
             System.err.println("No lead matches '" + id + "' --> Type 'show leads' to see the list of available ids.");
@@ -141,7 +159,7 @@ public class Lead extends Person {
             //Create a new contact with the information of the lead.
             Contact decisionMaker = new Contact(name, phoneNumber, email);
             System.out.println("New contact created from Lead " + id);
-            System.out.println(decisionMaker.toString());
+            decisionMaker.showContact();
 
             //Create a new opportunity with the information we asked the user and the new contact created.
             System.out.println("Creating a new opportunity.");
@@ -163,7 +181,7 @@ public class Lead extends Person {
             newAccount.addContacts(decisionMaker);
             newAccount.addOpportunities(newOpportunity);
             System.out.println("New account created from Lead " + id);
-            System.out.println(newAccount.toString());
+            newAccount.showAccount();
 
             //Remove the lead from the memory once all the process is completed.
             removeLead();
