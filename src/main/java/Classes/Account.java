@@ -100,6 +100,16 @@ public class Account {
         int accountId = Integer.parseInt(App.getCurrentId());
         if (Account.getAccountList().containsKey(accountId)) {
             String l1 = "%-2.2s";
+<<<<<<< HEAD
+            String s1 = "%-15.15s";
+            String s2 = "%-15.15s";
+            String s3 = "%-15.15s";
+            String s4 = "%-15.15s";
+            String s5 = "%-15.15s";
+            String s6 = "%-15.15s";
+            String s7 = "%-40.40s";
+            String s8 = "%-40.40s";
+=======
             String s1 = "%-20.20s";
             String s2 = "%-20.20s";
             String s3 = "%-20.20s";
@@ -108,18 +118,19 @@ public class Account {
             String s6 = "%-20.20s";
             String s7 = "%-20.20s";
             String s8 = "%-28.28s";
+>>>>>>> ba7b64ec5940ea068c648b6dcaf654f978bfc77c
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
             System.out.print(TextColor.BLUE);
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("| ACCOUNT                                                                                                                                                                              |");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("| ACCOUNT                                                                                                                                                                      |");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
             System.out.println();
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "|", accountList.get(accountId).getAccountId(), accountList.get(accountId).getCompanyName(), accountList.get(accountId).getIndustry(),accountList.get(accountId).getEmployeeCount(),accountList.get(accountId).getCity(),accountList.get(accountId).getCountry(),accountList.get(accountId).getContactList(),accountList.get(accountId).getOpportunityList(), "|");
             System.out.println();
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.print(TextColor.RESET);
         } else {
             System.err.println("Account number " + accountId + "doesn't exist");
