@@ -68,6 +68,14 @@ public class Opportunity {
         Opportunity.opportunityList = opportunityList;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", status=" + status +
+                '}';
+    }
+
     // Show details of an opportunity
     public void showOpportunity() {
         System.out.println("Opportunity");

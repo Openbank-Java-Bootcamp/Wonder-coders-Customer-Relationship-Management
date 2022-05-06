@@ -39,8 +39,6 @@ public class Contact extends Person {
         return "{" +
                 "id=" + id +
                 ", Name ='" + getName() + '\'' +
-                ", Phone Number ='" + getPhoneNumber() + '\'' +
-                ", Email ='" + getEmail() + '\'' +
                 '}';
     }
 
@@ -63,6 +61,27 @@ public class Contact extends Person {
             System.out.format(format, "|", value.getId(), value.getName(), value.getPhoneNumber(),value.getEmail(), " |");
             System.out.println();
         });
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.print(TextColor.RESET);
+    }
+
+    public void showContact(){
+        String l1 = "%-2.2s";
+        String s1 = "%-7.7s";
+        String s2 = "%-33.33s";
+        String s3 = "%-33.33s";
+        String s4 = "%-33.33s";
+        String l2 = "%2.2s";
+        String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + l2;
+        System.out.print(TextColor.BLUE);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| CONTACT                                                                                                         |");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "| ","ID", "NAME","PHONE NUMBER","EMAIL", " |");
+        System.out.println();
+        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.format(format, "|", id, getName(), getPhoneNumber(), getEmail(), "|");
+        System.out.println();
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
         System.out.print(TextColor.RESET);
     }
