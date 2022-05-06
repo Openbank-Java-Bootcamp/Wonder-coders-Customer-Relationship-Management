@@ -3,8 +3,8 @@ package Classes;
 public class App {
 
     private static boolean exit = false;
-    private static String currentCommand;
-    private static String currentId;
+    public static String currentCommand;
+    public static String currentId;
 
     public static void showIntro() {
         System.out.print(TextColor.WHITE_BOLD_BRIGHT);

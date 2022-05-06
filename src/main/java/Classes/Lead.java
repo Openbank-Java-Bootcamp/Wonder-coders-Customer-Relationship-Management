@@ -24,6 +24,7 @@ public class Lead extends Person {
         this.id = idCounter;
         this.companyName = companyName;
         leadList.put(id, this);
+
     }
 
     public String getCompanyName() {
