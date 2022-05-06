@@ -78,14 +78,14 @@ public class Opportunity {
 
     // Show details of an opportunity
     public void showOpportunity() {
-        System.out.println("Opportunity");
+        /*System.out.println("Opportunity");
         System.out.println("Id: " + id);
         System.out.println("Product: " + product);
         System.out.println("Quantity: " + quantity);
         System.out.println("Decision Maker: " + decisionMaker);
         System.out.println("Status: " + status);
-        System.out.println("--------------------------------------");
-        /*String l1 = "%-2.2s";
+        System.out.println("--------------------------------------");*/
+        String l1 = "%-2.2s";
         String s1 = "%-5.5s";
         String s2 = "%-10.10s";
         String s3 = "%-12.12s";
@@ -101,7 +101,7 @@ public class Opportunity {
         System.out.format(format, "|", id, product, quantity, decisionMaker, status, "|");
         System.out.println();
         System.out.println("-------------------------------------------------------------------------------------------------------------------");
-        System.out.print(TextColor.RESET);*/
+        System.out.print(TextColor.RESET);
     }
 
     // Show opportunity with id
@@ -111,8 +111,8 @@ public class Opportunity {
         if (Opportunity.getOpportunityList().containsKey(id)) { // If opportunity with exists
             Opportunity opportunity = opportunityList.get(id);
             System.out.println("This is the opportunity with id " + id);
-            opportunity.showOpportunity();
-            /*String l1 = "%-2.2s";
+            // opportunity.showOpportunity();
+            String l1 = "%-2.2s";
             String s1 = "%-5.5s";
             String s2 = "%-10.10s";
             String s3 = "%-12.12s";
@@ -128,7 +128,7 @@ public class Opportunity {
             System.out.format(format, "|", opportunity.id, opportunity.product, opportunity.quantity, opportunity.decisionMaker, opportunity.status, "|");
             System.out.println();
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
-            System.out.print(TextColor.RESET);*/
+            System.out.print(TextColor.RESET);
         } else {
             System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
