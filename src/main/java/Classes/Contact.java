@@ -29,8 +29,7 @@ public class Contact extends Person {
     @Override
     public String toString() {
         return id +
-                ", " + getName() + '\''
-                ;
+                ", " + getName();
     }
 
     public static void showContacts(){

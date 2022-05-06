@@ -54,12 +54,12 @@ public class Account {
             String s5 = "%-20.20s";
             String s6 = "%-20.20s";
             String s7 = "%-20.20s";
-            String s8 = "%-20.20s";
+            String s8 = "%-28.28s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
             System.out.print(TextColor.BLUE);
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("| ACCOUNT LIST                                                                                                                                                                     |");
+            System.out.println("| ACCOUNT LIST                                                                                                                                                                         |");
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.format(format, "| ","ACCOUNT-ID", "COMPANY NAME", "INDUSTRY","EMPLOYEES NUMBER","CITY","COUNTRY","CONTACTS","OPPORTUNITIES"," |");
             System.out.println();
@@ -80,7 +80,7 @@ public class Account {
             String s5 = "%-20.20s";
             String s6 = "%-20.20s";
             String s7 = "%-20.20s";
-            String s8 = "%-20.20s";
+            String s8 = "%-28.28s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
             System.out.print(TextColor.BLUE);
@@ -107,7 +107,7 @@ public class Account {
             String s5 = "%-20.20s";
             String s6 = "%-20.20s";
             String s7 = "%-20.20s";
-            String s8 = "%-20.20s";
+            String s8 = "%-28.28s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " " + s3 + " " + " " + s4 + " " + " " + s5 + " " + " " + s6 + " " +s7 + " " +s8 + " " + l2;
             System.out.print(TextColor.BLUE);
