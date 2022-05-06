@@ -26,7 +26,7 @@ public class App {
 
     public static String getCurrentId() { return currentId; }
 
-    private static boolean isExit() {
+    public static boolean isExit() {
         return exit;
     }
 
