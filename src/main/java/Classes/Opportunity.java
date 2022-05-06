@@ -68,14 +68,6 @@ public class Opportunity {
         Opportunity.opportunityList = opportunityList;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id=" + id +
-                ", status=" + status +
-                '}';
-    }
-
     // Show details of an opportunity
     public void showOpportunity() {
         System.out.println("Opportunity");
@@ -186,5 +178,11 @@ public class Opportunity {
         } else {
             System.err.println("No opportunity matches '" + id + "' --> Type 'show opportunities' to see the list of available ids.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "id " + id +
+                ", status " + status;
     }
 }
