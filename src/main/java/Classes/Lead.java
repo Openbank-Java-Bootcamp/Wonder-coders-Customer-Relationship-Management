@@ -49,7 +49,7 @@ public class Lead extends Person {
         String s2 = "%-25.25s";
         String s3 = "%-25.25s";
         String s4 = "%-25.25s";
-        String s5 = "%-24.24s";
+        String s5 = "%-23.23s";
         String l2 = "%2.2s";
         String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
         System.out.print(TextColor.BLUE);
@@ -89,7 +89,7 @@ public class Lead extends Person {
     public static void showLeads() {
         String l1 = "%-2.2s";
         String s1 = "%-37.37s";
-        String s2 = "%-70.70s";
+        String s2 = "%-71.71s";
         String l2 = "%2.2s";
         String format = l1 + " " + s1 + " " + s2 + " " + l2;
         System.out.print(TextColor.BLUE);
@@ -115,7 +115,7 @@ public class Lead extends Person {
             String s2 = "%-25.25s";
             String s3 = "%-25.25s";
             String s4 = "%-25.25s";
-            String s5 = "%-24.24s";
+            String s5 = "%-23.23s";
             String l2 = "%2.2s";
             String format = l1 + " " + s1 + " " + s2 + " "+ s3 + " "+ s4 + " " + s5 + " " + l2;
             System.out.print(TextColor.BLUE);
