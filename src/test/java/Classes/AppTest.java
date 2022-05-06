@@ -3,49 +3,41 @@ package Classes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
+    private Command command;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    public static void sayHi() {
+        System.out.println("Hi!");
+    }
+
     @BeforeEach
     void setUp() {
+        command = new Command("test command", "command sample text", "test commands are created", () -> sayHi());
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @Test
-    void exitApp() {
+    void initializeAndExitApp() {
+        assertEquals(false, App.isExit());
+        App.exitApp();
+        assertEquals(true, App.isExit());
     }
+
+
 
     @Test
-    void initialize() {
-    }
-
     public void runCommand(){
-        int number = 0;
-        // COMMANDS:
-
-
-        Command exit = new Command("exit", "exit", "quit CRM application", () -> exitApp());
-
-            App.currentCommand = null;
-            App.currentId = null;
-
-            // Get command from user (case-insensitive)
-            String nextCommand = "convert 24";
-
-            // Get generic command and ID in case user's command contains one
-            String[] commandWords = nextCommand.split(" ");
-            if( commandWords[commandWords.length - 1].replaceAll("[0-9]", "").equals("") ) {
-                App.currentId = commandWords[commandWords.length - 1];
-                commandWords[commandWords.length - 1] = "#";
-            }
-            App.currentCommand = String.join(" ", commandWords);
-
-            // Execute command
-            if(Command.getCommandsList().containsKey(App.currentCommand)) {
-                Command.getCommandsList().get(App.currentCommand).execute();
-            } else {
-                System.err.println("No command matches '" + nextCommand + "' --> Type 'command list' to see the list of available commands.");
-            }
-
+        App.currentCommand = "test command";
+        assertEquals("test command", App.currentCommand);
+        Command.getCommandsList().get(App.currentCommand).execute();
+        String expected = "Hi!";
+        String output = outputStreamCaptor.toString().trim();
+        assertEquals(expected, output);
     }
 }
