@@ -25,21 +25,11 @@ public class Contact extends Person {
     public static Map<Integer, Contact> getContactList() {
         return contactList;
     }
-
-    public void printContact (){
-        System.out.println("Contact");
-        System.out.println("Id: " + id);
-        System.out.println("Name: "+ getName());
-        System.out.println("Phone number: "+ getPhoneNumber());
-        System.out.println("Email: "+ getEmail());
-    }
-
+    
     @Override
     public String toString() {
-        return "{" +
-                "id=" + id +
-                ", Name ='" + getName() + '\'' +
-                '}';
+        return id +
+                ", " + getName();
     }
 
     public static void showContacts(){
