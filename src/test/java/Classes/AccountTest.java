@@ -38,7 +38,11 @@ class AccountTest {
                 "|  ACCOUNT-ID      COMPANY NAME    INDUSTRY         EMPLOYEES NUMBE  CITY             COUNTRY         CONTACTS                                 OPPORTUNITIES                             |"+System.getProperty("line.separator") +
                 "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"+System.getProperty("line.separator") +
                 "|  1               Mercadeo        ECOMMERCE        200              Málaga           Spain           []                                       []                                        |"+System.getProperty("line.separator") +
+
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"+System.getProperty("line.separator")+"\u001B[0m" ;
+
                 "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"+System.getProperty("line.separator   ") +"\u001B[0m" ;
+
         String output = outputStreamCaptor.toString().trim();
         assertEquals(expected, output);
     }
